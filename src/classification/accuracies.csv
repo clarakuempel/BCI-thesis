@@ -1,0 +1,4 @@
+1648078866,left,0.112,new_models/44.13-acc-64x3-batch-norm-8epoch-1648078391-loss-5.1.model,0.112,0.764,0.124
+1648078988,right,0.2,new_models/44.13-acc-64x3-batch-norm-8epoch-1648078391-loss-5.1.model,0.064,0.2,0.736
+1648129152,right,0.04,new_models/44.13-acc-64x3-batch-norm-8epoch-1648078391-loss-5.1.model,0.736,0.04,0.224
+1648129221,left,0.0,new_models/44.13-acc-64x3-batch-norm-8epoch-1648078391-loss-5.1.model,0.0,0.904,0.096
