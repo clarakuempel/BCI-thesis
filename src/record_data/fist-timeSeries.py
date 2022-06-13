@@ -9,10 +9,11 @@ from collections import deque
 import os
 import random
 
-ACTION = 'fist_left' # THIS IS THE ACTION I AM THINKING
+ACTION = 'fist_left' # THIS IS THE ACTION THE TEST PERSON IS THINKING!
 
 # first resolve an EEG stream on the lab network
 print("looking for an EEG stream...")
+# EEG2 if you stream Time Series over an EEG2 LSL stream in the Oopen BCI Interface
 streams = resolve_stream('type', 'EEG2')
 
 # create a new inlet to read from the stream
@@ -20,7 +21,8 @@ inlet = StreamInlet(streams[0])
 
 print("start: " + ACTION)
 
-duration = 60
+#  training duration can be changed
+duration = 10
 
 sleep(0)
 
@@ -43,7 +45,6 @@ def testLSLPulseData():
     # plt.show()
 
 raw_pulse_signals = testLSLPulseData()
-
 
 datadir = "timeSeries"
 

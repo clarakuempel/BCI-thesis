@@ -1,6 +1,9 @@
-# Studienarbeit from Clara Kümpel
+# Project thesis 2022 for course of Computer Science at DHBW
+***by Clara Kümpel***  
 
-folder explanations:
+topic: Classification of hand movements in human brain activity by a brain computer interface with electroencephalography on the basis of a prototypical implementation
+
+directories explained:
 - data: contains all recorded EEG data as well as a python script for calculating the data's lengths
 - models: saved trained models for convolutional neural network 1
 - models2: saved trained models for convolutional neural network 2
@@ -52,28 +55,35 @@ There are 3 options to record data with a started LSL stream.
 3. record while traning a model
 > $ python  src/record_data/make-first-data-visual.py
 
+### Train model while recording new data
+Therefore the user has to specify a model that already exists in the code. (for thinking data) Then the user can record new EEG data while training a model. The model will be updated and the user can see how the model performed.
+> $ python  src/classification/making-data-and-training.py
+
 
 ## Scripts that can be executed without a connected EEG
 
 ### Plot channels
+Run the command. (If wanted, it is possible to specify channels or source files, see code for instructions inside)
 > $ python src/setup/plot_channels.py
 
 ### Train model
+There are two models that can be trained.
+1. Train the first neural network on a specified data directory (see code for instructions)
 > $ python  src/classification/trainingI.py
 
-> $ python  src/classification/trainingII.py
+The output model is saved in the models directory.
 
-> $ python  src/classification/making-data-and-training.py
+2. Train the second neural network on a specified data directory (see code for instructions)
+> $ python  src/classification/trainingII.py  
 
+The output model is saved in the models2 directory.
 
 ### Analysis
 To run an analysis of the model you have to specify the following in the analysis.py file:
+1. type: "thinking" / "fist_fft" / "fist_fft_filtered"
+2. model name and location: e.g.  
+MODEL_NAME ="../../models2/fist_fft_filtered/17.38-acc-64x3-batch-norm-7epoch-1654865519-loss-91.25.model"  
+The best models are saved in the code  
 > $ python  src/analysis/analysis.py
 
-
-1. model_name
-- e.g. "new_models/44.13-acc-64x3-batch-norm-8epoch-1648078391-loss-5.1.model"
-2. validation data directoy VALDIR
-- e.g. "data/thinking/validation_data"
-
-All accuracies will be saved to the accuracy csv file
+A confusion matrix will be plotted.

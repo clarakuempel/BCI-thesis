@@ -4,7 +4,8 @@ import os
 import pandas as pd
 import matplotlib.pyplot as plt
 
-# best models
+# some of the best models are saved here:
+
 # thinking:
 # "../../models/thinking/43.47-acc-64x3-batch-norm-1epoch-1654867131-loss-1.61.model"
 # "../../models/thinking/43.93-acc-64-128x2-64x2-7epoch-1654865227-loss-3.32.model"
@@ -21,8 +22,9 @@ import matplotlib.pyplot as plt
 # "../../models2/fist_fft_filtered/17.38-acc-64x3-batch-norm-7epoch-1654865519-loss-91.25.model"
 
 
-# others: fist_fft, fist_fft_filtered, thinking
+# optione for data type: fist_fft, fist_fft_filtered, thinking
 type = "thinking"
+# select one model
 MODEL_NAME ="../../models2/fist_fft_filtered/17.38-acc-64x3-batch-norm-7epoch-1654865519-loss-91.25.model"
 
 VALDIR = f'../../data/{type}/validation_data'

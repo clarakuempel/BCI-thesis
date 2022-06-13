@@ -10,17 +10,13 @@ import time
 
 DATASEP = 5
 
-# datatype = "fist_fft_filtered"
-# val_starting_dir="../../data/fist_fft_filtered/validation_data"
-# train_starting_dir="../../data/fist_fft_filtered/data"
-
+# specify the data recording type here (3 options):
 datatype = "fist_fft"
-val_starting_dir="../../data/fist_fft/validation_data"
-train_starting_dir="../../data/fist_fft/data"
-
+# datatype = "fist_fft_filtered"
 # datatype = "thinking"
-# val_starting_dir="../../data/thinking/validation_data"
-# train_starting_dir="../../data/thinking/data"
+
+val_starting_dir=f"../../data/{datatype}/validation_data"
+train_starting_dir=f"../../data/{datatype}/data"
 
 ACTIONS = ["left", "right", "none"]
 reshape = (-1, 16, 60)

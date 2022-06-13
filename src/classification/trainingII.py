@@ -12,18 +12,13 @@ ACTIONS = ["left", "right", "none"]
 reshape = (-1, 16, 60)
 
 
+# specify the data recording type here (3 options):
+datatype = "fist_fft"
 # datatype = "fist_fft_filtered"
-# val_starting_dir="../../data/fist_fft_filtered/validation_data"
-# train_starting_dir="../../data/fist_fft_filtered/data"
+# datatype = "thinking"
 
-# datatype = "fist_fft"
-# val_starting_dir="../../data/fist_fft/validation_data"
-# train_starting_dir="../../data/fist_fft/data"
-
-datatype = "thinking"
-val_starting_dir="../../data/thinking/validation_data"
-train_starting_dir="../../data/thinking/data"
-
+val_starting_dir=f"../../data/{datatype}/validation_data"
+train_starting_dir=f"../../data/{datatype}/data"
 
 def create_data(starting_dir):
     training_data = {}

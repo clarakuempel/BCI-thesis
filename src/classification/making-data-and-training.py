@@ -9,18 +9,17 @@ import os
 import random
 import tensorflow as tf
 
-
-MODEL_NAME = "new_models/44.13-acc-64x3-batch-norm-8epoch-1648078391-loss-5.1.model"  # model path here.
-
+# specify a model for thinking here
+MODEL_NAME = "../../models/thinking/41.72-acc-64-128x2-64x2-9epoch-1654865529-loss-4.51.model"
 model = tf.keras.models.load_model(MODEL_NAME)
 reshape = (-1, 16, 60)
 model.predict(np.zeros((32,16,60)).reshape(reshape))
 
-ACTION = 'right' # THIS IS THE ACTION I AM THINKING
+ACTION = 'right' # THIS IS THE ACTION THE TEST PERSON IS THINKING
 
 FFT_MAX_HZ = 60
 
-HM_SECONDS = 10  # this is approximate. Not 100%. do not depend on this.
+HM_SECONDS = 10  # this is approximate, can be changed
 TOTAL_ITERS = HM_SECONDS*25  # ~25 iters/sec
 BOX_MOVE = "model"  # random or model
 
@@ -29,6 +28,7 @@ fps_counter = deque(maxlen=150)
 
 # first resolve an EEG stream on the lab network
 print("looking for an EEG stream...")
+# the Open BCI Networking LSL stream has to be started (FFT) data
 streams = resolve_stream('type', 'EEG')
 # create a new inlet to read from the stream
 inlet = StreamInlet(streams[0])
@@ -56,7 +56,7 @@ correct = 0
 
 channel_datas = []
 
-for i in range(TOTAL_ITERS):  # how many iterations. Eventually this would be a while True
+for i in range(TOTAL_ITERS):  # how many iterations. could be a while(True) loop
     channel_data = []
     for i in range(16): # each of the 16 channels here
         sample, timestamp = inlet.pull_sample()

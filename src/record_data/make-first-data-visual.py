@@ -9,12 +9,12 @@ import os
 import random
 import tensorflow as tf
 
-ACTION = 'none' # THIS IS THE ACTION I AM THINKING
+ACTION = 'none' # THIS IS THE ACTION THE TEST PERSON IS THINKING!
 FFT_MAX_HZ = 60
 
-HM_SECONDS = 10  # this is approximate. Not 100%. do not depend on this.
+HM_SECONDS = 10  # this is only approximate, not 100% depending on this.
 TOTAL_ITERS = HM_SECONDS*25  # ~25 iters/sec
-BOX_MOVE = "random"  # random or model
+BOX_MOVE = "random"  # model or random
 
 last_print = time.time()
 fps_counter = deque(maxlen=150)
@@ -23,9 +23,7 @@ fps_counter = deque(maxlen=150)
 print("looking for an EEG stream...")
 streams = resolve_stream('type', 'EEG')
 
-
 inlet = StreamInlet(streams[0])
-
 
 WIDTH = 800
 HEIGHT = 800
